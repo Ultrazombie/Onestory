@@ -3,7 +3,7 @@
 2. add premmissions for writiing for that folder
    > chmod 777 /etc/init.d/scripts
 3. create bash script file for start rethinkDB
-   vi /etc/init.d/scripts/DB.sh
+  > vi /etc/init.d/scripts/DB.sh
    #!/bin/bash
    rethinkdb
 4. create bash script file for start STF
@@ -12,6 +12,7 @@
    stf local --public-ip 192.168.88.213
 5. add scripts to autostart (daemoon)
   > vi /etc/systemd/system/DB.service
+  
    [Unit]
    Description=DB
    After=multi-user.target
@@ -21,7 +22,9 @@
    Restart=always
    [Install]
    WantedBy=multi-user.target
-   vi /etc/systemd/system/stf.service
+   
+   >vi /etc/systemd/system/stf.service
+   
    [Unit]
    Description=STF
    After=multi-user.target
